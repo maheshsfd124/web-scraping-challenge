@@ -1,0 +1,33 @@
+.h1, h1 {
+    font-family: "Georgia", Times, serif;
+    color: #e67e00;
+    font-size: 80px;
+}
+h2 {
+    font-family: "Georgia", Times, serif;
+    font-weight: bold;
+}
+h4 {
+    font-family: "Georgia", Times, serif;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+p {
+    font-family: "Georgia", Times, serif;
+    margin-bottom: 30px; 
+}
+
+.img-with-text {
+    font-family: "Georgia", Times, serif;
+    text-align: center;
+    width: 300px; 
+    margin: 20px;
+}
+
+.img-with-text img {
+    display: block;
+    margin: 0 auto;  
+}
+.container {
+    margin-bottom: 30px;
+}

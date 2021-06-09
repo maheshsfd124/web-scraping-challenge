@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  --> 
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+  
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  
+</head>
+
+<body>
+  <div class="container-fluid">
+    
+    <!-- Header with Scrape Button -->
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+    
+    <!-- Mars News title and paragraph -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Latest Mars News</h2>
+        <h4>{{ mars_doc.news_title }}</h4>
+        <p>{{ mars_doc.news_p }}</p>
+      </div>   
+    </div>
+    
+    <!-- Mars Featured Image and Table -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-12">
+          <h2>Featured Mars Image</h2>
+          <hr>
+          <img src="{{ mars_doc.featured_image_url }}" class=float-left alt="Featured Mars Image">
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <h2>Mars Facts</h2>
+          <hr>
+          {{ mars_doc.mars_table | safe }}
+        </div>
+      </div>
+    </div> <!-- Close Mars Featured Image and Table container -->
+      
+      <!-- Mars Hemispheres -->
+    <div class="container-fluid">
+        <h2>Mars Hemispheres</h2>
+        <hr>
+        <div class="row">
+          {% for hemi in mars_doc.hemisphere_image_urls %} 
+          <div class="img-with-text">
+              <img src="{{ hemi.img_url }}" alt="{{ hemi.title }}" style="width:300px;height:300px;">
+              <p> {{hemi.title}} </p> 
+          </div>
+          {% endfor %}
+        </div>
+    </div> <!-- Close Hemispheres container-fluid -->
+
+  </div> <!-- Close container-fluid -->
+
+</body>
+
+</html>
